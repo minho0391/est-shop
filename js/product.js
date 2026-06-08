@@ -56,8 +56,24 @@ function createContent(data) {
 }
 
 //상품 상세 tab
-const detail_tab_menus = "";
-const detail_tab_contents = "";
+const detail_tab_menus = document.querySelectorAll(".detail-tabs a");
+const detail_tab_contents = document.querySelectorAll(".tab-content .detail-content");
+detail_tab_menus.forEach((menu, index) => {
+  menu.addEventListener("click", e => {
+    e.preventDefault();
+
+    detail_tab_menus.forEach(menu => {
+      menu.classList.remove("active");
+    });
+
+    detail_tab_contents.forEach(content => {
+      content.classList.remove("active");
+    });
+
+    menu.classList.add("active");
+    detail_tab_contents[index].classList.add("active");
+  });
+});
 
 function createRecommendLists(all, category, id) {
   const recommendList = all.filter(p => p.category === category && p.id !== id).slice(0, 4);
