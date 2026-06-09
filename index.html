@@ -14,37 +14,7 @@
     <link rel="stylesheet" href="./css/index.css" />
   </head>
   <body>
-    <header class="site-header">
-      <div class="header-top container">
-        <a href="./index.html" class="logo" aria-label="ShopMall home">logo</a>
-        <form class="search-form" action="#" method="get">
-          <label for="search" class="sr-only">상품 검색</label>
-          <span class="search-icon" aria-hidden="true"></span>
-          <input id="search" type="search" placeholder="상품을 검색해보세요" />
-        </form>
-        <div class="user-actions">
-          <a href="#">로그인</a>
-          <a href="#">회원가입</a>
-          <a href="#" class="cart-button" aria-label="장바구니">
-            <span class="cart-icon" aria-hidden="true"></span>
-            <span class="cart-count">3</span>
-          </a>
-        </div>
-      </div>
-      <nav class="category-nav" aria-label="상품 카테고리">
-        <div class="container">
-          <ul>
-            <li><a href="#">전체상품</a></li>
-            <li><a href="#">패션의류</a></li>
-            <li><a href="#">디지털</a></li>
-            <li><a href="#">홈&amp;리빙</a></li>
-            <li><a href="#">뷰티</a></li>
-            <li><a href="#">스포츠</a></li>
-            <li><a href="#">도서</a></li>
-          </ul>
-        </div>
-      </nav>
-    </header>
+    <header class="site-header"></header>
 
     <main>
       <section class="hero">
@@ -58,25 +28,19 @@
       <section class="shop-section container" id="products">
         <aside class="filter-panel" aria-label="상품 필터">
           <h2>필터</h2>
-          <fieldset>
+          <fieldset id="category-filter">
             <legend>카테고리</legend>
             <label><input type="checkbox" name="category" value="all" /> 전체</label>
-            <label><input type="checkbox" name="category" value="fashion" /> 패션의류</label>
-            <label><input type="checkbox" name="category" value="digital" /> 디지털</label>
-            <label><input type="checkbox" name="category" value="home" /> 홈&amp;리빙</label>
+            <!-- <label><input type="checkbox" name="category" value="fashion" /> 패션의류</label> -->
           </fieldset>
-          <fieldset>
+          <fieldset id="price-filter">
             <legend>가격대</legend>
             <label><input type="radio" name="price" value="all" /> 전체</label>
-            <label><input type="radio" name="price" value="low" /> 10만원 이하</label>
-            <label><input type="radio" name="price" value="middle" /> 10-50만원</label>
-            <label><input type="radio" name="price" value="high" /> 50만원 이상</label>
+            <!-- <label><input type="radio" name="price" value="low" /> 10만원 이하</label> -->
           </fieldset>
-          <fieldset>
+          <fieldset id="brand-filter">
             <legend>브랜드</legend>
-            <label><input type="checkbox" name="brand" value="samsung" /> 삼성</label>
-            <label><input type="checkbox" name="brand" value="lg" /> LG</label>
-            <label><input type="checkbox" name="brand" value="nike" /> 나이키</label>
+            <!-- <label><input type="checkbox" name="brand" value="samsung" /> 삼성</label> -->
           </fieldset>
           <button type="button" class="btn btn-muted">필터 초기화</button>
         </aside>
@@ -111,28 +75,21 @@
           </div>
 
           <nav class="pagination" aria-label="페이지">
-            <a href="#" aria-label="이전 페이지">‹</a>
-            <a href="#" class="active">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <span>...</span>
-            <a href="#">10</a>
-            <a href="#" aria-label="다음 페이지">›</a>
+            <a href="#" class="prev" aria-label="이전 페이지">‹</a>
+            <p class="pager"></p>
+            <a href="#" class="next" aria-label="다음 페이지">›</a>
           </nav>
         </section>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="footer-inner container">
-        <p>© 2024 ShopMall. All rights reserved.</p>
-        <ul class="payment-list" aria-label="지원 결제 수단">
-          <li>visa</li>
-          <li>mc</li>
-          <li>p</li>
-        </ul>
-      </div>
-    </footer>
-    <script src="js/main.js"></script>
+    <footer class="site-footer"></footer>
+    <script type="module">
+      import { renderHeader } from "./js/modules/header.js";
+      import { renderFooter } from "./js/modules/footer.js";
+      renderHeader();
+      renderFooter();
+    </script>
+    <script type="module" src="js/main.js"></script>
   </body>
 </html>
